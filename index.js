@@ -10,13 +10,16 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/users", userRouter);
-app.use(authenticate);
-app.use("/notes", noteRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use("/users", userRouter);
+app.use(authenticate);
+app.use("/notes", noteRouter);
+
+
 
 app.listen(port, async () => {
   try {
